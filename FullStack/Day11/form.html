@@ -1,0 +1,107 @@
+<html>
+<head>
+<title>Registration Form</title>
+<style>
+    body{
+        background-color: lightblue;
+    }
+    h2{
+        text-align: center;
+        color : rebeccapurple;
+        font-weight : bold;
+        font : 30px;
+
+    }
+    form{
+        text-align: center;
+    }
+    button{
+        color : rgb(245, 245, 250);
+        background-color: blue;
+    }
+</style>
+</head>
+<body>
+    <h2>Registration Form</h2>
+    <form id="myForm">
+    <form action = " ">
+        <label for="name">Name :</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="password">Password :</label>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <label for="confirmPassword">Confirm Password :</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required><br><br>
+
+        <label for="date">Date of Birth : </label>
+        <input type = "date" id = "date" name = "date"><br><br>
+
+        <label for="name">Gender : </label>
+        <input type="radio" class="gender" name="genders" value="male">
+        <label for="gender">Male</label>
+        <input type="radio" class="gender" name="genders" value="female">
+        <label for="gender">Female</label>
+        <input type="radio" class="gender" name="genders" value="other">
+        <label for="gender">Other</label><br><br>
+
+        <label for="country">Select your Country : </label>
+        <select name = "country" id= "country">
+            <option value = "Select">Select</option>
+            <option value = "INDIA">INDIA</option>
+            <option value = "RUSSIA">RUSSIA</option>
+            <option value = "AMERICA">AMERICA</option>
+            <option value = "CHINA">CHINA</option>
+        </select><br><br>
+
+        <label for = "skills">Select the Skills : </label>
+        <input type = "checkbox" name = "skills" id = "HTML" value = "HTML">
+        <label for ="HTML">HTML</label>
+        <input type = "checkbox" name = "skills" id = "JAVA" value = "JAVA">
+        <label for ="JAVA">JAVA</label>
+        <input type = "checkbox" name = "skills" id = "C" value = "C">
+        <label for ="C">C</label>
+        <input type = "checkbox" name = "skills" id = "C++" value = "C++">
+        <label for ="C++">C++</label>
+        <input type = "checkbox" name = "skills" id = "PYTHON" value = "PYTHON">
+        <label for ="PYTHON">PYTHON</label>
+        <input type = "checkbox" name = "skills" id = "JS" value = "JS">
+        <label for ="JS">JS</label><br><br>
+
+        <form onsubmit="handleClick(); return false;">
+        <button type="submit">Submit</button>
+
+    </form>
+</body>
+<script>
+let total = [];
+function handleClick(){
+
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+    let dob = document.getElementById("date").value;
+    let country = document.getElementById("country").value;
+    let gender = "";
+    let genders = document.getElementsByName("genders");
+    for(let i=0;i<genders.length;i++){
+        if(genders[i].checked){
+            gender = genders[i].value;
+        }
+    }
+    let selectedSkills = [];
+    let skills = document.getElementsByName("skills");
+    for(let i=0;i<skills.length;i++){
+        if(skills[i].checked){
+            selectedSkills.push(skills[i].value);
+        }
+    }
+    total = [name,email,password,dob,gender,country,selectedSkills];
+    console.log(total);
+}
+    document.getElementById("myForm").reset();
+</script>
+</html>

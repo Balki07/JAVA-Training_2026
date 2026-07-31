@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>JavaScript</title>
+        <style>
+            button{
+                padding : 10px;
+                size : 50px;
+                background-color: rgb(38, 215, 255);
+                color: rgb(0, 0, 0);
+                border-radius: 50px;
+                border: none;
+                cursor: pointer;
+                font : bold Arial;
+            }
+            button:hover{
+                background-color: rgb(255, 0, 17);
+                color : white;
+            }
+        </style>
+    </head>
+    <body>
+        <label for="name">Gender</label><br><br>
+        <input type="radio" class="gender" name="genders" value="male">
+        <label for="gender">Male</label><br><br>
+        <input type="radio" class="gender" name="genders" value="female">
+        <label for="gender">Female</label><br><br>
+        <input type="radio" class="gender" name="genders" value="other">
+        <label for="gender">Other</label><br><br>
+        <button onclick="handleClick()">Submit</button>
+        <br><br>
+    </body>
+<script>
+    function handleClick() {
+        let gender = document.getElementsByName("genders");
+        for(let i=0; i<gender.length; i++){
+            if(gender[i].checked){
+                console.log("Selected Gender is : " + gender[i].value);
+            }
+        }
+    }
+    </script>
+</html>
+

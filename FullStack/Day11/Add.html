@@ -1,0 +1,48 @@
+<!Doctype html>
+<html lang="en">
+<head>
+<title>Document</title>
+<style>
+    button{
+        padding : 10px;
+        size : 50px;
+        background-color: rgb(38, 215, 255);
+        color: rgb(0, 0, 0);
+        border-radius: 50px;
+        border: none;
+        cursor: pointer;
+        font : bold Arial;
+    }
+    button:hover{
+        background-color: rgb(255, 0, 17);
+        color : white;
+    }
+</style>
+</head>
+
+<body>
+<form>
+    <label for="name">Enter Your Name</label>
+    <input type="text" id="name" placeholder="Enter Your Name">
+    <button type="button" onclick="handleClick()">Submit</button>
+</form>
+<p id="demo"></p>
+<ol id = "userlist"></ol>
+
+<script>
+
+    total = [];
+    function handleClick() {
+        const inputvalue = document.getElementById("name").value;
+        let username = document.getElementById("name").value;
+        total.push(username);
+        let li = document.createElement("li");
+        li.textContent = username;
+        document.getElementById("userlist").appendChild(li);
+        document.getElementById("name").value = " ";
+
+    }
+</script>
+
+</body>
+</html>
